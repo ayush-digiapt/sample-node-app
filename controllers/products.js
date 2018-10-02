@@ -1,6 +1,6 @@
 var express = require('express');
 
-exports.getProducts = function getProducts(req, res) {
+exports.getProducts = function (req, res) {
     console.log("entering into getProducts");
     var users;
     users = [{
@@ -14,3 +14,6 @@ exports.getProducts = function getProducts(req, res) {
     console.log("exiting from getProducts");
     res.status(200).send(users);
 }
+
+
+// create product
