@@ -1,4 +1,5 @@
 var express = require('express');
+var db = require('../db/db');
 
 exports.getProducts = function (req, res) {
     console.log("entering into getProducts");
@@ -18,12 +19,27 @@ exports.getProducts = function (req, res) {
 
 // create product
 exports.createProduct = function(req, res) {
+    
     console.log("entering into createProduct");
-
+    
     // print inputs
     console.log("request body: ", req.body);
 
-    res.status(201).send("product has been created successfully");
+    var dbConnection = db.getDbConnection();
+    var queryStatement = "insert into products values('"+req.body.product_id+"','"+req.body.product_Name+"',"+req.body.price+",now(),now(),"+req.body.quentity+")";
 
-    console.log("exiting from createProduct");
+    console.log("query to be exectuted:: ",queryStatement);
+
+    dbConnection.query(queryStatement,function(err,result){
+		if(err) {
+			console.log("error: ",err);
+			res.status(500).send(err);		
+		} else {
+            console.log("success: ",result);
+            if(result.affectedRows === 1) {
+                res.status(201).send("Product has been inserted successfully");		
+            }
+        }
+        console.log("exiting from createProduct");
+    });
 }
