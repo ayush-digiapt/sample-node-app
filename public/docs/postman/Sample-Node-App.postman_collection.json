@@ -1,0 +1,42 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Sample-Node-App",
+		"_postman_id": "0a2bbff1-8609-76e3-f0ba-ddf10ac8a1d0",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "{{baseUrl}}/products",
+			"request": {
+				"url": "{{baseUrl}}/products",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "{{baseUrl}}/products",
+			"request": {
+				"url": "{{baseUrl}}/products",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"product_id\":\"8\",\n\t\"product_Name\":\"test-product-5\",\n\t\"price\":20000,\n\t\"quentity\":5\n}"
+				},
+				"description": "Create Product"
+			},
+			"response": []
+		}
+	]
+}
