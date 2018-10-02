@@ -17,3 +17,13 @@ exports.getProducts = function (req, res) {
 
 
 // create product
+exports.createProduct = function(req, res) {
+    console.log("entering into createProduct");
+
+    // print inputs
+    console.log("request body: ", req.body);
+
+    res.status(201).send("product has been created successfully");
+
+    console.log("exiting from createProduct");
+}
